@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Ranking Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- STARTSCREEN -->
+  <div id="startScreen" class="start-screen">
+    <h1>YouTube Ranking Game</h1>
+    <h2>Wähle einen Kanal</h2>
+
+	<input 
+	  type="text" 
+	  id="channelSearch" 
+	  placeholder="Channel suchen..." 
+	  class="channel-search"
+	/>
+
+
+    <div class="channel-select" id="channelSelect"></div>
+      
+  </div>
+
+  <!-- SPIEL (ALTES LAYOUT) -->
+  <div id="gameRoot" class="hidden">
+
+    <!-- Ergebnis-Popup -->
+    <div id="resultPopup" class="popup hidden">
+      <div class="popup-content">
+        <span id="popupClose" class="popup-close">×</span>
+        <h2>Ergebnis</h2>
+        <p id="popupMessage"></p>
+      </div>
+    </div>
+
+    <header class="topbar">
+      <div class="logo">YouTube Ranking</div>
+      <div class="user-area">
+        <button id="backToStart">⬅ Zurück</button>
+		<input id="username" type="text" placeholder="Twitch-Username eingeben">
+        <button id="startGame">Spiel starten</button>
+        <button id="toggleTheme">🌓 Theme</button>
+        <img id="avatar" class="avatar" alt="Avatar">
+      </div>
+    </header>
+
+    <main>
+      <section class="info">
+        <h1>Top 10 raten</h1>
+        <h2>Ziehe 10 Tracks in das Ranking. Gesucht sind die IDs 1–10.</h2>
+      </section>
+
+      <section class="game-layout">
+        <div class="pool">
+          <h2>Alle Tracks (zufällig)</h2>
+          <div id="poolContainer" class="card-list"></div>
+        </div>
+
+        <div class="ranking">
+          <h2>Dein Ranking (1–10)</h2>
+          <div id="rankingContainer" class="ranking-list"></div>
+          <button id="submitSelection" disabled>Auswahl abgeben</button>
+          <div id="result"></div>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/csv-parser.js"></script>
+  <script src="js/start.js"></script>
+  <script src="js/game.js"></script>
+
+</body>
+</html>
